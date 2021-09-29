@@ -29,3 +29,15 @@ stages:
           steps:
           - script: echo This is a DEPLOYMENT job
             displayName: 'Deploy project'
+- stage: CD
+  displayName: Stage
+  jobs:
+  - deployment: deploy
+    displayName: Stage
+    environment: Staging
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+          - script: echo This is a DEPLOYMENT job
+            displayName: 'Deploy project'
