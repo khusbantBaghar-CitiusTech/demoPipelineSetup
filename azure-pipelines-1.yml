@@ -20,7 +20,7 @@ steps:
   displayName: 'dotnet restore'
   inputs:
     command: restore
-    vstsFeed: '**/*demoPipelineSetup.csproj'
+   
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
