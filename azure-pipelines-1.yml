@@ -15,8 +15,19 @@ variables:
   buildConfiguration: 'Release'   
     
 steps:
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: restore
+    vstsFeed: ''
 
-
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    zipAfterPublish: true  
+    arguments: '--configuration $(BuildConfiguration)'    
 
 
 - task: VSTest@2
